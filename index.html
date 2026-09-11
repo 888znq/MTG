@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Martingale Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #000432; /* Updated dark navy background */
+      color: #ffffff;      /* White text */
+      font-family: 'Kalam', cursive, 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      font-size: 1.1em;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #ffffff; /* White heading */
+      letter-spacing: 1px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95em;
+    }
+    th, td {
+      padding: 8px 10px;
+      text-align: center;
+      color: #ffffff; /* all text white */
+      border: 1px solid #ffffff; /* white borders */
+    }
+    th {
+      font-size: 1.05em;
+      font-weight: bold;
+    }
+    td:first-child {
+      font-weight: bold;
+    }
+    .input-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .input-header label {
+      margin-bottom: 3px;
+      font-size: 0.95em;
+      color: #ffffff; /* white labels */
+    }
+    .table-input, .startbet-table-input {
+      width: 80px;
+      padding: 4px 6px;
+      border: 1px solid #ffffff; /* white border */
+      border-radius: 4px;
+      background: #000432;       /* match dark background */
+      color: #ffffff;            /* white text inside inputs */
+      font-size: 0.9em;
+      text-align: center;
+      outline: none;
+      font-family: 'Kalam', cursive;
+    }
+    .table-input:focus, .startbet-table-input:focus {
+      border-color: #fff;
+      box-shadow: 0 0 6px #fff;
+    }
+    .bet-cell-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .bet-label {
+      font-size: 0.93em;
+      color: #ffffff; /* white starting bet label */
+      margin-bottom: 2px;
+      font-family: 'Kalam', cursive;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 700px) {
+      th, td { font-size: 0.85em; padding: 4px; }
+      .table-input, .startbet-table-input { width: 60px; font-size: 0.85em; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Martingale Calculator</h1>
+  <div class="container">
+    <table id="calcTable">
+      <thead>
+        <tr>
+          <th>
+            <div class="input-header">
+              <label for="steps">Steps</label>
+              <input type="number" id="steps" class="table-input" value="8" min="1" />
+            </div>
+          </th>
+          <th>
+            <div class="input-header">
+              <label for="multiplier">Multiplier</label>
+              <input type="number" id="multiplier" class="table-input" value="2.3" step="0.01" min="1" />
+            </div>
+          </th>
+          <th>
+            <div class="input-header">
+              <label for="payout">Payout</label>
+              <input type="number" id="payout" class="table-input" value="1.82" step="0.01" min="0.01" />
+            </div>
+          </th>
+          <th>Money<br>Needed</th>
+          <th>Profit</th>
+        </tr>
+      </thead>
+      <tbody id="resultBody"></tbody>
+    </table>
+  </div>
+  <script>
+    function ordinal(n) {
+      const s = ["th", "st", "nd", "rd"];
+      const v = n % 100;
+      return n + (s[(v - 20) % 10] || s[v] || s[0]);
+    }
+
+    let startBetValue = "70";
+
+    function calculate() {
+      const steps = parseInt(document.getElementById("steps").value);
+      const multiplier = parseFloat(document.getElementById("multiplier").value);
+      const payoutMult = parseFloat(document.getElementById("payout").value);
+
+      const startBetInputDom = document.getElementById("startBet");
+      if (startBetInputDom) startBetValue = startBetInputDom.value;
+
+      let bet = parseFloat(startBetValue.replace(/^0+/, '')) || 0;
+      let moneyNeeded = 0;
+      let body = "";
+
+      for (let i = 1; i <= steps; i++) {
+        moneyNeeded += bet;
+        const payout = bet * payoutMult;
+        const profit = payout - moneyNeeded;
+
+        let betCell = "";
+        if (i === 1) {
+          betCell = `
+            <div class="bet-cell-container">
+              <span class="bet-label">Starting Bet</span>
+              <input type="text" id="startBet" value="${startBetValue}" class="startbet-table-input" min="0.01" step="any" autocomplete="off" />
+            </div>
+          `;
+        } else {
+          betCell = Math.round(bet);
+        }
+
+        body += `
+        <tr>
+          <td>${ordinal(i)}</td>
+          <td>${betCell}</td>
+          <td>${Math.round(payout)}</td>
+          <td>${Math.round(moneyNeeded)}</td>
+          <td>${Math.round(profit)}</td>
+        </tr>`;
+        bet *= multiplier;
+      }
+      document.getElementById("resultBody").innerHTML = body;
+
+      const startBetInput = document.getElementById("startBet");
+      if (startBetInput) {
+        ["input","change","blur"].forEach(evt=>{
+          startBetInput.addEventListener(evt, () => {
+            startBetValue = startBetInput.value;
+            calculate();
+          });
+        });
+      }
+    }
+
+    window.onload = calculate;
+    document.querySelectorAll(".table-input").forEach((input) => {
+      input.addEventListener("input", calculate);
+    });
+  </script>
+</body>
+</html>
