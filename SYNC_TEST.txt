@@ -1,2 +1,0 @@
-Repo: MTG
-Codename: LIVE-MTG-7627
