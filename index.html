@@ -457,86 +457,92 @@
     letter-spacing: 0.5px;
   }
   <style>
-    body {
-      background: #000432; /* Updated dark navy background */
-      color: #ffffff;      /* White text */
-      font-family: 'Kalam', cursive, 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 20px;
-      font-size: 1.1em;
-    }
-    h1 {
-      text-align: center;
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #ffffff; /* White heading */
-      letter-spacing: 1px;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95em;
-    }
-    th, td {
-      padding: 8px 10px;
-      text-align: center;
-      color: #ffffff; /* all text white */
-      border: 1px solid #ffffff; /* white borders */
-    }
-    th {
-      font-size: 1.05em;
-      font-weight: bold;
-    }
-    td:first-child {
-      font-weight: bold;
-    }
-    .input-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .input-header label {
-      margin-bottom: 3px;
-      font-size: 0.95em;
-      color: #ffffff; /* white labels */
-    }
-    .table-input, .startbet-table-input {
-      width: 80px;
-      padding: 4px 6px;
-      border: 1px solid #ffffff; /* white border */
-      border-radius: 4px;
-      background: #000432;       /* match dark background */
-      color: #ffffff;            /* white text inside inputs */
-      font-size: 0.9em;
-      text-align: center;
-      outline: none;
-      font-family: 'Kalam', cursive;
-    }
-    .table-input:focus, .startbet-table-input:focus {
-      border-color: #fff;
-      box-shadow: 0 0 6px #fff;
-    }
-    .bet-cell-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .bet-label {
-      font-size: 0.93em;
-      color: #ffffff; /* white starting bet label */
-      margin-bottom: 2px;
-      font-family: 'Kalam', cursive;
-      letter-spacing: 1px;
-    }
-    @media (max-width: 700px) {
-      th, td { font-size: 0.85em; padding: 4px; }
-      .table-input, .startbet-table-input { width: 60px; font-size: 0.85em; }
-    }
-  </style>
+      body {
+        background: #0f172a;
+        color: #e2e8f0;
+        font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+        margin: 0;
+        padding: 20px;
+        font-size: 1.05em;
+      }
+      h1 {
+        text-align: center;
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #38bdf8;
+        letter-spacing: 0.5px;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95em;
+        background: #1e293b;
+        font-family: 'Fira Code', monospace;
+        font-variant-numeric: tabular-nums;
+      }
+      th, td {
+        padding: 8px 10px;
+        text-align: center;
+        color: #e2e8f0;
+        border: 1px solid #334155;
+      }
+      th {
+        font-size: 1.02em;
+        font-weight: 700;
+        background: #0f172a;
+        color: #7dd3fc;
+      }
+      td:first-child {
+        font-weight: 700;
+        color: #38bdf8;
+      }
+      .input-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .input-header label {
+        margin-bottom: 3px;
+        font-size: 0.92em;
+        color: #cbd5e1;
+      }
+      .table-input, .startbet-table-input {
+        width: 80px;
+        padding: 4px 6px;
+        border: 1px solid #38bdf8;
+        border-radius: 4px;
+        background: #0f172a;
+        color: #f8fafc;
+        font-size: 0.9em;
+        text-align: center;
+        outline: none;
+        font-family: 'Fira Code', monospace;
+      }
+      .table-input:focus, .startbet-table-input:focus {
+        border-color: #7dd3fc;
+        box-shadow: 0 0 6px rgba(56, 189, 248, 0.45);
+      }
+      .bet-cell-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .bet-label {
+        font-size: 0.9em;
+        color: #cbd5e1;
+        margin-bottom: 2px;
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        letter-spacing: 0.5px;
+      }
+      @media (max-width: 700px) {
+        th, td { font-size: 0.85em; padding: 4px; }
+        .table-input, .startbet-table-input { width: 60px; font-size: 0.85em; }
+      }
+    </style>
     -->
   </head>
 <body>
