@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Martingale Calculator</title>
   <!-- gemini test -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Fira+Code:wght@500;600;700&display=swap" rel="stylesheet">
     <!-- LEFTOVER
     body {
       background: #071318; /* Dark slate-emerald background */
@@ -227,91 +227,96 @@
   ===SPLIT===
     -->
         <style>
-          body {
-            background: #071318; /* Dark slate-emerald background */
-        color: #ecfdf5; /* Soft mint-white text */
-        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-        margin: 0;
-        padding: 20px;
-        font-size: 1.05em;
-      }
-      h1 {
-        text-align: center;
-        font-size: 2em;
-        margin-bottom: 20px;
-        color: #34d399; /* Emerald heading */
-        letter-spacing: 0.5px;
-      }
-      .container {
-        max-width: 900px;
-        margin: auto;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.95em;
-        background: #0c1f27;
-        font-variant-numeric: tabular-nums;
-      }
-      th, td {
-        padding: 8px 10px;
-        text-align: center;
-        color: #ecfdf5; /* Soft mint-white text */
-        border: 1px solid #1e3a46; /* Muted slate-teal borders */
-      }
-      th {
-        font-size: 1.02em;
-        font-weight: 700;
-        background: #102934;
-        color: #a7f3d0;
-      }
-      td:first-child {
-        font-weight: 700;
-        color: #6ee7b7;
-      }
-      .input-header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .input-header label {
-        margin-bottom: 3px;
-        font-size: 0.92em;
-        color: #a7f3d0;
-      }
-      .table-input, .startbet-table-input {
-        width: 80px;
-        padding: 4px 6px;
-        border: 1px solid #34d399; /* Emerald border */
-        border-radius: 4px;
-        background: #071318; /* Match dark slate-emerald background */
-        color: #ffffff; /* White text inside inputs */
-        font-size: 0.9em;
-        text-align: center;
-        outline: none;
-        font-family: 'JetBrains Mono', monospace;
-      }
-      .table-input:focus, .startbet-table-input:focus {
-        border-color: #6ee7b7;
-        box-shadow: 0 0 6px rgba(52, 211, 153, 0.45);
-      }
-      .bet-cell-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .bet-label {
-        font-size: 0.9em;
-        color: #a7f3d0;
-        margin-bottom: 2px;
-        font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-        letter-spacing: 0.5px;
-              }
-              @media (max-width: 700px) {
-                th, td { font-size: 0.85em; padding: 4px; }
-                .table-input, .startbet-table-input { width: 60px; font-size: 0.85em; }
-              }
-            </style>
+            body {
+              background: #0f0e13; /* Deep obsidian background */
+              color: #f5f3ef; /* Warm off-white text */
+              font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+              margin: 0;
+              padding: 20px;
+              font-size: 1.05em;
+            }
+            h1 {
+              text-align: center;
+              font-size: 2em;
+              margin-bottom: 20px;
+              color: #f59e0b; /* Amber-gold heading */
+              letter-spacing: 0.5px;
+            }
+            .container {
+              max-width: 900px;
+              margin: auto;
+            }
+            table {
+              width: 100%;
+              border-collapse: collapse;
+              font-size: 0.95em;
+              background: #17161e;
+              font-family: 'Fira Code', monospace;
+              font-variant-numeric: tabular-nums;
+            }
+            th, td {
+              padding: 9px 10px;
+              text-align: center;
+              color: #f5f3ef; /* Warm off-white text */
+              border: 1px solid #2e2b3b; /* Muted warm slate borders */
+            }
+            tbody tr:hover {
+              background: #1f1d28;
+            }
+            th {
+              font-family: 'Space Grotesk', system-ui, sans-serif;
+              font-size: 1.02em;
+              font-weight: 700;
+              background: #211f2b;
+              color: #fcd34d;
+            }
+            td:first-child {
+              font-weight: 700;
+              color: #fbbf24;
+            }
+            .input-header {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            .input-header label {
+              margin-bottom: 4px;
+              font-size: 0.92em;
+              color: #fcd34d;
+            }
+            .table-input, .startbet-table-input {
+              width: 80px;
+              padding: 4px 6px;
+              border: 1px solid #f59e0b; /* Amber border */
+              border-radius: 5px;
+              background: #0f0e13; /* Match obsidian background */
+              color: #ffffff; /* White text inside inputs */
+              font-size: 0.9em;
+              text-align: center;
+              outline: none;
+              font-family: 'Fira Code', monospace;
+            }
+            .table-input:focus, .startbet-table-input:focus {
+              border-color: #fcd34d;
+              box-shadow: 0 0 6px rgba(245, 158, 11, 0.45);
+            }
+            .bet-cell-container {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            .bet-label {
+              font-size: 0.88em;
+              color: #fcd34d;
+              margin-bottom: 3px;
+              font-family: 'Space Grotesk', system-ui, sans-serif;
+              letter-spacing: 0.4px;
+            }
+            @media (max-width: 700px) {
+              th, td { font-size: 0.85em; padding: 4px; }
+              .table-input, .startbet-table-input { width: 60px; font-size: 0.85em; }
+            }
+          </style>
           <!-- LEFTOVER
   ===SPLIT===
   body {
